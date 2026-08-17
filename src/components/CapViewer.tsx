@@ -68,10 +68,10 @@ function ProductCap({ progress, revealProgress }: { progress: number; revealProg
 
     // Giro horizontal continuo: conserva el comportamiento original de la
     // experiencia y termina a 45° después de una vuelta completa.
-    group.current.rotation.y = THREE.MathUtils.damp(group.current.rotation.y, 1 + progress * (Math.PI * 2 + Math.PI / 4 - 1), 6, delta);
+    group.current.rotation.y = THREE.MathUtils.damp(group.current.rotation.y, Math.PI / 4 + progress * Math.PI * 2, 6, delta);
     group.current.rotation.x = THREE.MathUtils.damp(group.current.rotation.x, 0.52, 6, delta);
-    group.current.position.y = THREE.MathUtils.damp(group.current.position.y, 0, 7, delta);
-    group.current.scale.setScalar(THREE.MathUtils.damp(group.current.scale.x, 1, 7, delta));
+    group.current.position.y = THREE.MathUtils.damp(group.current.position.y, 0.18, 7, delta);
+    group.current.scale.setScalar(THREE.MathUtils.damp(group.current.scale.x, 1.1, 7, delta));
     materials.current.forEach((material) => {
       material.color.lerp(variantColors[stage], 1 - Math.exp(-7 * delta));
       material.opacity = THREE.MathUtils.damp(material.opacity, entrance, 8, delta);
@@ -86,7 +86,7 @@ function ProductCap({ progress, revealProgress }: { progress: number; revealProg
 }
 
 export default function CapViewer({ progress, revealProgress }: { progress: number; revealProgress: number }) {
-  return <Canvas shadows dpr={[1, 1.5]} camera={{ position: [0, 0.05, 5.4], fov: 31 }} gl={{ alpha: true, antialias: true, powerPreference: "high-performance" }}>
+  return <Canvas shadows dpr={[1, 1.5]} camera={{ position: [0, 0.05, 5.22], fov: 31 }} gl={{ alpha: true, antialias: true, powerPreference: "high-performance" }}>
     <ambientLight intensity={2.35} />
     <directionalLight position={[4, 5, 4]} intensity={3.7} castShadow shadow-mapSize={[1024, 1024]} />
     <directionalLight position={[-4, 2, -3]} intensity={2.9} color="#c8d6ff" />
