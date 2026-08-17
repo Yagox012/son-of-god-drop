@@ -70,7 +70,7 @@ function ProductCap({ progress, revealProgress }: { progress: number; revealProg
     // experiencia y termina a 45° después de una vuelta completa.
     group.current.rotation.y = THREE.MathUtils.damp(group.current.rotation.y, Math.PI / 4 + progress * Math.PI * 2, 6, delta);
     group.current.rotation.x = THREE.MathUtils.damp(group.current.rotation.x, 0.52, 6, delta);
-    group.current.position.y = THREE.MathUtils.damp(group.current.position.y, 0.18, 7, delta);
+    group.current.position.y = THREE.MathUtils.damp(group.current.position.y, 0.3, 7, delta);
     group.current.scale.setScalar(THREE.MathUtils.damp(group.current.scale.x, 1.1, 7, delta));
     materials.current.forEach((material) => {
       material.color.lerp(variantColors[stage], 1 - Math.exp(-7 * delta));
