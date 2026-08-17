@@ -74,7 +74,6 @@ export default function Home() {
           <div className="showcase-copy"><p className="eyebrow">DROP 01 / {activeVariant.name}</p><h2>Hecha para<br />cada ángulo.</h2></div>
           <div className="scroll-product" aria-hidden="true">
             <CapViewer progress={scrollProgress} revealProgress={revealProgress} />
-            <Image className="scroll-design" src={activeVariant.image} alt="" fill sizes="(max-width: 700px) 82vw, 48vw" />
             <div className="orbit orbit-one" /><div className="orbit orbit-two" />
           </div>
           <div className="showcase-status"><span>{String(Math.min(3, Math.floor(scrollProgress * 3) + 1)).padStart(2, "0")} / 03</span><strong>{activeVariant.name} / 01</strong><span>{activeVariant.detail}</span></div>
